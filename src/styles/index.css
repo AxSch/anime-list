@@ -1,0 +1,7 @@
+/* inject tailwind component, utilities & base styles */
+
+@tailwind base;
+
+@tailwind components;
+
+@tailwind utilities;
