@@ -18,7 +18,7 @@ const Toolbar = () => {
         <>
             <header className="bg-gray-900">
                 <div className="flex items-center justify-between px-4 py-3">
-                    <div></div>
+                    <div className="px-2"></div>
                     <div className="text-white text-4xl">
                         <h1>Anime List</h1>
                     </div>
