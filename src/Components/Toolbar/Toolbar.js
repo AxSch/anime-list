@@ -16,7 +16,7 @@ const Toolbar = () => {
 
     return (
         <>
-            <header className="bg-gray-900">
+            <header className="fixed w-full bg-gray-900">
                 <div className="flex items-center justify-between px-4 py-3">
                     <div className="px-2"></div>
                     <div className="text-white text-4xl">
