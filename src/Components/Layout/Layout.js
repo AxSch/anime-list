@@ -5,8 +5,7 @@ const Layout = () => {
     return (
         <>
             <Toolbar></Toolbar>
-            <div>Main</div>
-            <div>Footer</div>
+            <div>Main Content</div>
         </>
     )
 }
