@@ -4,8 +4,17 @@ import App from './App';
 import './styles/tailwind.css';
 import * as serviceWorker from './serviceWorker';
 import Footer from './Components/Footer/Footer';
+import { BrowserRouter } from 'react-router-dom';
 
-ReactDOM.render([<App key="1"/>, <Footer key="2"/>], document.getElementById('root'));
+const app =(
+        <BrowserRouter>
+            <App />
+            <Footer />
+        </BrowserRouter>
+)
+
+
+ReactDOM.render(app, document.getElementById('root'));
 
 // If you want your app to work offline and load faster, you can change
 // unregister() to register() below. Note this comes with some pitfalls.
