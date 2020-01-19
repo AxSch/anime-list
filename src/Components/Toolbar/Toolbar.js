@@ -19,7 +19,7 @@ const Toolbar = () => {
 
     return (
         <>
-            <header className="px-8 fixed w-full bg-gray-900 lg:flex lg:justify-between lg:px-8 lg:py-3">
+            <header className="px-8 w-full bg-gray-900 lg:flex lg:justify-between lg:px-8 lg:py-3">
                 <div className="flex items-center justify-between px-4 py-3 lg:p-0">
                     <div className="text-white text-4xl">
                         <h1>Anime List</h1>
