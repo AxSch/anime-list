@@ -3,7 +3,6 @@ import ReactDOM from 'react-dom';
 import App from './App';
 import './styles/tailwind.css';
 import * as serviceWorker from './serviceWorker';
-import Footer from './Components/Footer/Footer';
 import { BrowserRouter } from 'react-router-dom';
 
 const app =(
