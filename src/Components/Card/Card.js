@@ -31,7 +31,9 @@ const Card = ({ result }) => {
                 {isDialog ?
                     <StyledDiv className="z-10 bottom-0 text-white p-2 rounded overflow-hidden absolute w-full">
                         <div>
-                            <h1 className="text-lg"><b>{result.title}</b></h1>
+                            <h1 className="text-lg">
+                                {result.title_english !== null ? <b>{result.title_english}</b> : <b>{result.title}</b>}
+                            </h1>
                         </div>
                         <div>
                             <span>Released: {result.premiered}</span>
