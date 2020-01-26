@@ -5,7 +5,7 @@ import { Link } from 'react-router-dom'
 
 const StyledDiv = styled.div`
     animation-name: slideUp;
-    animation-duration: .7s;
+    animation-duration: .6s;
     animation-timing-function: ease-out;
     background-color: rgba(160, 174, 192, .8);
     @keyframes slideUp {
