@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import {
     faArrowAltCircleLeft,
@@ -24,11 +24,14 @@ import {
     faBiohazard,
     faDragon,
     faBible,
-    faFighterJet
+    faFighterJet,
+    faFilm,
+    faPlay
 } from '@fortawesome/free-solid-svg-icons'
 import { Link } from 'react-router-dom'
 import styled from 'styled-components'
 import ReactPlayer from 'react-player'
+
 
 const Border = styled.div`
     width: 75%;
@@ -37,6 +40,8 @@ const Border = styled.div`
 
 const CardDetails = ({ content }) => {
     console.log(content)
+    const [isTrailer, setIsTrailer] = useState(false)
+    
     const renderGenreIcons = genres => {
         const iconMap = {
             'Action': <FontAwesomeIcon icon={faBomb} />,
@@ -78,7 +83,7 @@ const CardDetails = ({ content }) => {
 
     const renderMetadata = content => {
         return (
-            <div className="flex flex-col my-4 bg-gray-200 rounded p-3">
+            <div className="flex flex-col my-4 bg-gray-100 rounded p-3">
                 <div className="pb-3">
                     <span>
                         <b>Age Rating: </b> {content.rating}
@@ -141,6 +146,17 @@ const CardDetails = ({ content }) => {
         return null
     }
 
+    const renderTrailer = () => {
+        if (isTrailer) {
+            return (
+                <div className="flex flex-row justify-center">
+                    <ReactPlayer url={content.trailer_url} />
+                </div>
+            )
+        }
+        return null
+    }
+
     return (
         <>
             <div className="flex flex-row text-gray-800 pl-6 md:pl-12 xl:pl-8 mb-10">
@@ -155,6 +171,8 @@ const CardDetails = ({ content }) => {
                     <img className="w-auto h-auto" src={content.image_url} alt={`${content.title} cover art`} />
                     {renderContentType(content.type)}
                     {renderMetadata(content)}
+                    <button onClick={() => setIsTrailer(!isTrailer)} href="/#"><FontAwesomeIcon icon={faPlay} className="mr-2"/>Trailer</button>
+                    <button href="/#"><FontAwesomeIcon icon={faFilm} className="mr-2"/>Stream</button>
                 </div>
                 <div className="flex-col w-2/3 p-5 items-center">
                     <div className="flex flex-row mb-6 justify-center items-center">
@@ -172,12 +190,9 @@ const CardDetails = ({ content }) => {
                         {renderGenreIcons(content.genres)}
                     </div>
                     <div className="m-2">Rating Component - {content.score}</div>
-                    <a href="/#">Streaming Link</a>
+                    {renderTrailer()}
                 </div>
             </div>
-            {/* <div>
-                <ReactPlayer url={content.trailer_url} />
-            </div> */}
         </>
     )
 }
