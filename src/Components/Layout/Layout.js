@@ -4,7 +4,7 @@ import Footer from '../Footer/Footer'
 
 const Layout = ({ children }) => {
     return (
-        <div>
+        <div className="absolute">
             <div className="fixed top-0 z-10 w-full">
                 <Toolbar />
             </div>
