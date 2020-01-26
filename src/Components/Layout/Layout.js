@@ -8,7 +8,7 @@ const Layout = ({ children }) => {
             <div className="fixed top-0 z-10 w-full">
                 <Toolbar />
             </div>
-            <div className="mt-32">
+            <div className="mt-32 w-screen">
                 {children}
             </div>
             <div className="absolute bottom-0 w-full">

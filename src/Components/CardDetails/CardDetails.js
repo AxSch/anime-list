@@ -83,7 +83,7 @@ const CardDetails = ({ content }) => {
 
     const renderMetadata = content => {
         return (
-            <div className="flex flex-col my-4 bg-gray-100 rounded p-3">
+            <div className="flex flex-col my-4 bg-gray-100 rounded p-6">
                 <div className="pb-3">
                     <span>
                         <b>Age Rating: </b> {content.rating}
