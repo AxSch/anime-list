@@ -62,7 +62,7 @@ class ListView extends Component {
 
     render() {
         return (
-            <div className="m-4 text-center">
+            <div className="m-4 mb-40 text-center">
                 <div className="flex flex-row flex-wrap justify-around items-center">
                     {this.renderCard()}
                 </div>
