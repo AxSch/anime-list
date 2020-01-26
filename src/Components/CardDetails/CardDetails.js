@@ -30,28 +30,28 @@ const CardDetails = ({ content }) => {
     const renderMetadata = content => {
         return (
             <div className="flex flex-col my-4">
-                <div>
+                <div className="pb-3">
                     <span>
                         <b>Age Rating: </b> {content.rating} 
                     </span>
                 </div>
-                <div>
+                <div className="pb-3">
                     <ul>
                     <b>Studios: </b>
         {content.studios.map((studio, key) => <li className="ml-4" key="key">{studio.name}</li>)}
                     </ul>
                 </div>
-                <div>
+                <div className="pb-3">
                     <span>
                         <b>Released: </b> {content.premiered}
                     </span>
                 </div>
-                <div>
+                <div className="pb-3">
                     <span>
                     <b>Status: </b>  {content.status}
                     </span>
                 </div>
-                <div>
+                <div className="pb-3">
                     <span>
                         <b>No. of episodes: </b> {content.episodes}
                     </span>
@@ -84,7 +84,7 @@ const CardDetails = ({ content }) => {
                     </Link>
                 </button>
             </div>
-            <div className="flex" >
+            <div className="flex">
                 <div className="flex flex-col bg-blue-600 w-1/3 items-center p-5">
                     <img className="w-auto h-auto" src={content.image_url} alt={`${content.title} cover art`}/>
                     {renderContentType(content.type)}
