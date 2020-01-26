@@ -4,7 +4,7 @@ import styled from 'styled-components'
 
 const StyledDiv = styled.div`
     animation-name: slideUp;
-    animation-duration: 1.2s;
+    animation-duration: 1s;
     animation-timing-function: ease-out;
     background-color: rgba(160, 174, 192, .8);
     @keyframes slideUp {
