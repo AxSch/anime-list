@@ -51,14 +51,14 @@ const CardDetails = ({ content }) => {
                     <b>Status: </b>  {content.status}
                     </span>
                 </div>
-                <div className="pb-3">
+                {content.type === 'TV' ? <div className="pb-3">
                     <span>
-                        <b>No. of episodes: </b> {content.episodes}
+                        <b>Episodes: </b> {content.episodes}
                     </span>
-                </div>
+                </div> : null}
                 <div>
                     <span>
-                       <b>Episode duration: </b> {content.duration}
+                       <b>Duration: </b> {content.duration}
                     </span>
                 </div>
             </div>
@@ -73,6 +73,11 @@ const CardDetails = ({ content }) => {
                 </div>
             )
         }
+        return (
+            <div className="mt-4">
+                {type}
+            </div>
+        )
     }
 
     return (
