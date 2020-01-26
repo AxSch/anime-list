@@ -150,7 +150,7 @@ const CardDetails = ({ content }) => {
         if (isTrailer) {
             return (
                 <div className="flex flex-row justify-center">
-                    <ReactPlayer url={content.trailer_url} />
+                    <ReactPlayer width="100%" url={content.trailer_url} />
                 </div>
             )
         }
@@ -158,7 +158,7 @@ const CardDetails = ({ content }) => {
     }
 
     return (
-        <>
+        <div className="mb-40 w-full">
             <div className="flex flex-row text-gray-800 pl-6 md:pl-12 xl:pl-8 mb-10">
                 <button className="text-4xl focus:outline-none">
                     <Link to="/">
@@ -166,21 +166,26 @@ const CardDetails = ({ content }) => {
                     </Link>
                 </button>
             </div>
-            <div className="flex">
-                <div className="flex flex-col w-1/3 items-center p-5">
+            <div className="flex flex-wrap md:flex-no-wrap">
+                <div className="flex flex-col w-full sm:w-1/3 items-center p-5">
+                    <div className="md:hidden flex flex-row mb-6 justify-center items-center">
+                        <h1 className="text-3xl mr-2">{content.title_english}</h1>
+                    </div>
                     <img className="w-auto h-auto" src={content.image_url} alt={`${content.title} cover art`} />
                     {renderContentType(content.type)}
                     {renderMetadata(content)}
                     <button onClick={() => setIsTrailer(!isTrailer)} href="/#"><FontAwesomeIcon icon={faPlay} className="mr-2"/>Trailer</button>
                     <button href="/#"><FontAwesomeIcon icon={faFilm} className="mr-2"/>Stream</button>
                 </div>
-                <div className="flex-col w-2/3 p-5 items-center">
-                    <div className="flex flex-row mb-6 justify-center items-center">
-                        <h1 className="text-3xl mr-2">{content.title_english}</h1>
-                    </div>
-                    {renderAltTitle(content.title, content.title_english)}
-                    <div className="flex flex-row justify-center">
-                        <Border className="mb-6" />
+                <div className="flex-col p-5 items-center sm:w-2/3">
+                    <div className="hidden sm:block">
+                        <div className="flex flex-row mb-6 justify-center items-center">
+                            <h1 className="text-3xl mr-2">{content.title_english}</h1>
+                        </div>
+                        {renderAltTitle(content.title, content.title_english)}
+                        <div className="flex flex-row justify-center">
+                            <Border className="mb-6" />
+                        </div>
                     </div>
                     <div className="m-2 mb-4 leading-relaxed">
                         <p>{content.synopsis}</p>
@@ -193,7 +198,7 @@ const CardDetails = ({ content }) => {
                     {renderTrailer()}
                 </div>
             </div>
-        </>
+        </div>
     )
 }
 
