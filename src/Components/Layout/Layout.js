@@ -8,12 +8,11 @@ const Layout = ({ children }) => {
             <div className="fixed top-0 z-10 w-full">
                 <Toolbar />
             </div>
-            <div className="mt-40">
+            <div className="mt-32">
                 {children}
             </div>
-            <div>
-            <Footer />
-                {/* <h1 className="bg-red-700">hi</h1> */}
+            <div className="absolute bottom-0 w-full">
+                <Footer />
             </div>
         </div>
     )
