@@ -90,18 +90,19 @@ const CardDetails = ({ content }) => {
                     {renderContentType(content.type)}
                     {renderMetadata(content)}
                 </div>
-                <div className="flex-col bg-red-700 w-2/3 p-5 items-center">
+                <div className="flex-col w-2/3 bg-red-700 p-5 items-center">
                     <div className="flex flex-row mb-6 justify-center items-center">
                         <h1 className="text-3xl mr-2 pr-2">{content.title}</h1>
                     </div>
                     <div>
                         {content.title_synonyms.length > 0 ? content.title_synonyms.map(title => title) : null}
                     </div>
-                    <div className="m-2 leading-relaxed">
+                    <div className="m-2 mb-4 leading-relaxed">
                         <p>{content.synopsis}</p>
                     </div>
+                    <div className="m-2"><b>Genres:</b></div>
                     <div className="flex justify-between flex-wrap m-2 items-center">
-                        <b>Genres:</b> {renderGenreIcons(content.genres)}
+                        {renderGenreIcons(content.genres)}
                     </div>
                 <div className="m-2">Rating Component - {content.score}</div>
                 <a href="/#">Streaming Link</a>
