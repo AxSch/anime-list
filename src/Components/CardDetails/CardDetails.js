@@ -1,6 +1,29 @@
 import React from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faArrowAltCircleLeft, faBomb, faMap, faTheaterMasks, faGrinTears, faAtom, faSpaceShuttle } from '@fortawesome/free-solid-svg-icons'
+import { 
+    faArrowAltCircleLeft,
+    faBomb,
+    faMap,
+    faTheaterMasks,
+    faGrinTears,
+    faAtom,
+    faSpaceShuttle,
+    faHatWizard,
+    faHeart,
+    faBrain,
+    faQuestion,
+    faRobot,
+    faGamepad,
+    faSchool,
+    faGhost,
+    faBookDead,
+    faBolt,
+    faExclamation,
+    faChild,
+    faGraduationCap,
+    faBiohazard,
+    faDragon
+} from '@fortawesome/free-solid-svg-icons'
 import { Link } from 'react-router-dom'
 
 
@@ -13,7 +36,23 @@ const CardDetails = ({ content }) => {
             'Comedy': <FontAwesomeIcon icon={faGrinTears} />,
             'Drama': <FontAwesomeIcon icon={faTheaterMasks} />,
             'Sci-Fi': <FontAwesomeIcon icon={faAtom} />,
+            'Ecchi': <FontAwesomeIcon icon={faExclamation} />,
             'Space': <FontAwesomeIcon icon={faSpaceShuttle} />,
+            'Fantasy': <FontAwesomeIcon icon={faDragon} />,
+            'Romance': <FontAwesomeIcon icon={faHeart} />,
+            'Mystery': <FontAwesomeIcon icon={faQuestion} />,
+            'Mecha': <FontAwesomeIcon icon={faRobot} />,
+            'Game': <FontAwesomeIcon icon={faGamepad} />,
+            'School': <FontAwesomeIcon icon={faSchool} />,
+            'Thriller': <FontAwesomeIcon icon={faGamepad} />,
+            'Supernatural': <FontAwesomeIcon icon={faGhost} />,
+            'Horror': <FontAwesomeIcon icon={faBiohazard} />,
+            'Historical': <FontAwesomeIcon icon={faBookDead} />,
+            'Magic': <FontAwesomeIcon icon={faHatWizard} />,
+            'Super Power': <FontAwesomeIcon icon={faBolt} />,
+            'Seinen': <FontAwesomeIcon icon={faGraduationCap} />,
+            'Shounen': <FontAwesomeIcon icon={faChild} />,
+            'Psychological': <FontAwesomeIcon icon={faBrain} />,
         }
         return genres.map((genre, key) => {
             return (
@@ -106,7 +145,7 @@ const CardDetails = ({ content }) => {
                         <p>{content.synopsis}</p>
                     </div>
                     <div className="m-2"><b>Genres:</b></div>
-                    <div className="flex justify-between flex-wrap m-2 items-center">
+                    <div className="flex flex-wrap m-2 items-center">
                         {renderGenreIcons(content.genres)}
                     </div>
                 <div className="m-2">Rating Component - {content.score}</div>
