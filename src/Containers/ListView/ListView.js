@@ -1,6 +1,9 @@
 import React, { Component } from 'react'
 import HTTPClient from '../../http/HTTPClient'
 import Card from '../../Components/Card/Card'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faCog } from '@fortawesome/free-solid-svg-icons'
+import styled from 'styled-components'
 
 class ListView extends Component {
     constructor() {
@@ -44,7 +47,7 @@ class ListView extends Component {
         const res = await urlIDs.map(async id => await api.get(id))
         const resValues = await Promise.all(res)
 
-        this.setState({ resultsData: resValues })
+        // this.setState({ resultsData: resValues })
     }
     componentDidMount() {
         this.fetchData()
@@ -61,10 +64,27 @@ class ListView extends Component {
     }
 
     render() {
+        const { resultsData } = this.state
+        let renderedElement = null
+        if (resultsData.length  === 0) {
+            const StyledDiv = styled.div`
+
+            `
+            renderedElement = (
+                <div className="flex flex-col items-center text-6xl mt-4 text-gray-800">
+                    <StyledDiv>
+                        <FontAwesomeIcon icon={faCog} />
+                    </StyledDiv>
+                    <span className="text-xl">Shh! The elves are at work...</span>
+                </div>
+            )
+        } else {
+            renderedElement = this.renderCard()
+        }
         return (
             <div className="m-4 mb-40 text-center">
                 <div className="flex flex-row flex-wrap justify-around items-center">
-                    {this.renderCard()}
+                    {renderedElement}
                 </div>
             </div>
         )
