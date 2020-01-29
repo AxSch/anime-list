@@ -31,6 +31,8 @@ import {
 import { Link } from 'react-router-dom'
 import styled from 'styled-components'
 import ReactPlayer from 'react-player'
+import Rating from 'react-rating'
+
 
 
 const Border = styled.div`
@@ -41,7 +43,7 @@ const Border = styled.div`
 const CardDetails = ({ content }) => {
     console.log(content)
     const [isTrailer, setIsTrailer] = useState(false)
-    
+
     const renderGenreIcons = genres => {
         const iconMap = {
             'Action': <FontAwesomeIcon icon={faBomb} />,
@@ -174,8 +176,8 @@ const CardDetails = ({ content }) => {
                     <img className="w-auto h-auto" src={content.image_url} alt={`${content.title} cover art`} />
                     {renderContentType(content.type)}
                     {renderMetadata(content)}
-                    <button onClick={() => setIsTrailer(!isTrailer)} href="/#"><FontAwesomeIcon icon={faPlay} className="mr-2"/>Trailer</button>
-                    <button href="/#"><FontAwesomeIcon icon={faFilm} className="mr-2"/>Stream</button>
+                    <button onClick={() => setIsTrailer(!isTrailer)} href="/#"><FontAwesomeIcon icon={faPlay} className="mr-2" />Trailer</button>
+                    <button href="/#"><FontAwesomeIcon icon={faFilm} className="mr-2" />Stream</button>
                 </div>
                 <div className="flex-col p-5 items-center sm:w-2/3">
                     <div className="hidden sm:block">
@@ -194,7 +196,13 @@ const CardDetails = ({ content }) => {
                     <div className="flex flex-wrap m-2 items-center">
                         {renderGenreIcons(content.genres)}
                     </div>
-                    <div className="m-2">Rating Component - {content.score}</div>
+                    <div className="m-2">
+                        <Rating
+                            initialRating={content.score}
+                            readonly
+                            stop={10}
+                        />
+                    </div>
                     {renderTrailer()}
                 </div>
             </div>
