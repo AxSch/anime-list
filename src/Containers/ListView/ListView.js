@@ -71,7 +71,7 @@ class ListView extends Component {
 
             `
             renderedElement = (
-                <div className="flex flex-col items-center text-6xl mt-4 text-gray-800">
+                <div className="flex flex-col items-center text-6xl mt-64 text-gray-800 h-screen">
                     <StyledDiv>
                         <FontAwesomeIcon icon={faCog} />
                     </StyledDiv>
