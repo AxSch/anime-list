@@ -137,15 +137,17 @@ const CardDetails = ({ content }) => {
     }
 
     const renderAltTitle = (title, altTitle) => {
-        if (title.toLowerCase() !== altTitle.toLowerCase()) {
-            return (
-                <div className="flex flex-row mb-6 justify-center items-center">
-                    <span className="text-lg">Also known as:</span>
-                    <h1 className="pl-3 text-lg mr-2">{title}</h1>
-                </div>
-            )
+        if (altTitle !== null) {
+            if (title.toLowerCase() !== altTitle.toLowerCase()) {
+                return (
+                    <div className="flex flex-row mb-6 justify-center items-center">
+                        <span className="text-lg">Also known as:</span>
+                        <h1 className="pl-3 text-lg mr-2">{title}</h1>
+                    </div>
+                )
+            }
+            return null
         }
-        return null
     }
 
     const renderTrailer = () => {
@@ -170,8 +172,8 @@ const CardDetails = ({ content }) => {
             </div>
             <div className="flex flex-wrap md:flex-no-wrap">
                 <div className="flex flex-col w-full sm:w-1/3 items-center p-5">
-                    <div className="md:hidden flex flex-row mb-6 justify-center items-center">
-                        <h1 className="text-3xl mr-2">{content.title_english}</h1>
+                    <div className="sm:hidden flex flex-row mb-6 justify-center items-center">
+                        <h1 className="text-3xl mr-2">{content.title_english ? content.title_english : content.title}</h1>
                     </div>
                     <img className="w-auto h-auto" src={content.image_url} alt={`${content.title} cover art`} />
                     {renderContentType(content.type)}
@@ -182,7 +184,7 @@ const CardDetails = ({ content }) => {
                 <div className="flex-col p-5 items-center sm:w-2/3">
                     <div className="hidden sm:block">
                         <div className="flex flex-row mb-6 justify-center items-center">
-                            <h1 className="text-3xl mr-2">{content.title_english}</h1>
+                            <h1 className="text-3xl mr-2">{content.title_english ? content.title_english : content.title}</h1>
                         </div>
                         {renderAltTitle(content.title, content.title_english)}
                         <div className="flex flex-row justify-center">
