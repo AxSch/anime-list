@@ -3,7 +3,7 @@ import HTTPClient from '../../http/HTTPClient'
 import Card from '../../Components/Card/Card'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faCog } from '@fortawesome/free-solid-svg-icons'
-import styled from 'styled-components'
+import styled, { keyframes } from 'styled-components'
 
 class ListView extends Component {
     constructor() {
@@ -49,6 +49,16 @@ class ListView extends Component {
 
         // this.setState({ resultsData: resValues })
     }
+
+    spinAnimation = keyframes`
+        0% {
+            transform: rotate(0deg);
+        }
+        100% {
+            transform: rotate(360deg);
+        }
+    `
+
     componentDidMount() {
         this.fetchData()
     }
@@ -68,7 +78,7 @@ class ListView extends Component {
         let renderedElement = null
         if (resultsData.length  === 0) {
             const StyledDiv = styled.div`
-
+                animation: ${this.spinAnimation} 3s linear infinite;
             `
             renderedElement = (
                 <div className="flex flex-col items-center text-6xl mt-64 text-gray-800 h-screen">
