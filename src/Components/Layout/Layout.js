@@ -11,7 +11,7 @@ const Layout = ({ children }) => {
             <div className="mt-32 w-screen">
                 {children}
             </div>
-            <div className="absolute bottom-0 w-full">
+            <div id="trailer-div" className="absolute bottom-0 w-full">
                 <Footer />
             </div>
         </div>

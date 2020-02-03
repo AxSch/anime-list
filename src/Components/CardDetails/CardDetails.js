@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import {
     faArrowAltCircleLeft,
@@ -41,8 +41,22 @@ const Border = styled.div`
 `
 
 const CardDetails = ({ content }) => {
-    console.log(content)
+
     const [isTrailer, setIsTrailer] = useState(false)
+    
+    useEffect(() => {
+        window.scrollTo(0,0)
+    }, [content])
+
+    const scrollToTrailer = isTrailer => {
+        setIsTrailer(isTrailer)
+        if (isTrailer) {
+            document.getElementById("trailer-div").scrollIntoView( {
+                behavior: "smooth",
+                block: "end"
+            })
+        }
+    }
 
     const renderGenreIcons = genres => {
         const iconMap = {
@@ -178,7 +192,7 @@ const CardDetails = ({ content }) => {
                     <img className="w-auto h-auto" src={content.image_url} alt={`${content.title} cover art`} />
                     {renderContentType(content.type)}
                     {renderMetadata(content)}
-                    <button onClick={() => setIsTrailer(!isTrailer)} href="/#"><FontAwesomeIcon icon={faPlay} className="mr-2" />Trailer</button>
+                    <button onClick={() => scrollToTrailer(!isTrailer)} href="/#"><FontAwesomeIcon icon={faPlay} className="mr-2" />Trailer</button>
                     <button href="/#"><FontAwesomeIcon icon={faFilm} className="mr-2" />Stream</button>
                 </div>
                 <div className="flex-col p-5 items-center sm:w-2/3">
