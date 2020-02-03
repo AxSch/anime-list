@@ -164,6 +164,39 @@ const CardDetails = ({ content }) => {
         }
     }
 
+    const selectStream = title => {
+        const streamMap = {
+            "Cowboy Bebop": "https://9anime.to/watch/cowboy-bebop-dub.l1n3/q459y3",
+            "Ergo Proxy": "https://9anime.to/watch/ergo-proxy-dub.v822/kypqpr",
+            "Monster": "https://9anime.to/watch/monster-dub.m29x/r57zop",
+            "Fullmetal Alchemist: Brotherhood": "https://9anime.to/watch/fullmetal-alchemist-brotherhood-dub.1orw/lzv3zz",
+            "Gurren Lagann": "https://9anime.to/watch/gurren-lagann-dub.4wxo/mxv4kp",
+            "Death Note": "https://9anime.to/watch/death-note-dub.v7y2/lzzl4n",
+            "Psycho-Pass": "https://9anime.to/watch/psycho-pass-dub.n958/r7ly0q",
+            "Death Parade": "https://9anime.to/watch/death-parade-dub.k9mw/4yq14j",
+            "Howl's Moving Castle": "https://9anime.to/watch/howls-moving-castle-dub.no9l/q5xrwj",
+            "Princess Mononoke": "https://9anime.to/watch/princess-mononoke-dub.pw99/o2zpj5",
+            "KILL la KILL": "https://9anime.to/watch/kill-la-kill-dub.39x6/62lv74",
+            "Welcome to the N.H.K.": "https://9anime.to/watch/welcome-to-the-nhk-dub.0903/lw6r4q",
+            "A Silent Voice": "https://9anime.to/watch/a-silent-voice-dub.l76q/n1vr9k",
+            "Steins;Gate": "https://9anime.to/watch/steinsgate-dub.718j/8wr8vn",
+            "Steins;Gate 0": "https://9anime.to/watch/steinsgate-0-dub.l9zn/nzrvkj",
+            "Hellsing Ultimate": "https://9anime.to/watch/hellsing-ultimate-dub.6xjp/nz9pvn",
+            "Parasyte -the maxim-": "https://9anime.to/watch/parasyte-the-maxim-dub.4x1m/4kyvlk",
+            "Re:ZERO -Starting Life in Another World-": "https://9anime.to/watch/rezero-starting-life-in-another-world-dub.jq9n/4kkr7j",
+            "Fate/Zero": "https://9anime.to/watch/fatezero-dub.k92w/jovppn",
+            "AKIRA": "https://9anime.to/watch/akira-dub.00yk/lv4n2m",
+            "Naruto": "https://9anime.to/watch/naruto-dub.p86/3jmlqr",
+            "Naruto: Shippuden": "https://9anime.to/watch/naruto-shippuden-dub.00zr/4koz4o",
+            "Berserk": "https://9anime.to/watch/berserk-dub.wwp7/r7ojlq",
+            "Neon Genesis Evangelion": "https://9anime.to/watch/neon-genesis-evangelion-dub.yk0z/62l469",
+            "Vinland Saga": "https://9anime.to/watch/vinland-saga.77zy/5lp3mj"
+        }
+        
+        return streamMap[title]
+
+    }
+
     const renderTrailer = () => {
         if (isTrailer) {
             return (
@@ -193,7 +226,7 @@ const CardDetails = ({ content }) => {
                     {renderContentType(content.type)}
                     {renderMetadata(content)}
                     <button onClick={() => scrollToTrailer(!isTrailer)} href="/#"><FontAwesomeIcon icon={faPlay} className="mr-2" />Trailer</button>
-                    <button href="/#"><FontAwesomeIcon icon={faFilm} className="mr-2" />Stream</button>
+                    <a href={selectStream(content.title_english ? content.title_english : content.title)}><FontAwesomeIcon icon={faFilm} className="mr-2" />Stream</a>
                 </div>
                 <div className="flex-col p-5 items-center sm:w-2/3">
                     <div className="hidden sm:block">
