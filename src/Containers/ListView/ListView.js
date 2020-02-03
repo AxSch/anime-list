@@ -47,7 +47,7 @@ class ListView extends Component {
         const res = await urlIDs.map(async id => await api.get(id))
         const resValues = await Promise.all(res)
 
-        // this.setState({ resultsData: resValues })
+        this.setState({ resultsData: resValues })
     }
 
     spinAnimation = keyframes`
